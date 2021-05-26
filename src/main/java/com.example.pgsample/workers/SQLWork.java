@@ -1,6 +1,7 @@
-package com.example.pgsample;
+package com.example.pgsample.workers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.pgsample.models.Rooster;
 
 import java.io.*;
 import java.sql.Connection;
@@ -15,8 +16,8 @@ public class SQLWork {
      private ObjectMapper mapper = new ObjectMapper();
      private Connection connection;
 
-    public SQLWork(Connection connect) {
-        connection = connect;
+    public SQLWork(Connection connection) {
+        this.connection = connection;
 
     }
 
@@ -38,7 +39,7 @@ public class SQLWork {
         }
     }
 
-     ArrayList<Rooster> selectAll() throws SQLException{
+     public ArrayList<Rooster> selectAll() throws SQLException{
 
         PreparedStatement statement2 =
                 connection.prepareStatement("SELECT * FROM list_of_roosters;");
@@ -77,7 +78,7 @@ public class SQLWork {
 
     }
 
-     void add(Rooster inputRooster) throws SQLException{
+     public void add(Rooster inputRooster) throws SQLException{
         
 
         PreparedStatement statement3 =
@@ -98,7 +99,7 @@ public class SQLWork {
 
     }
 
-     void JsonSer(ArrayList<Rooster> roostersList) throws  SQLException, IOException {
+     public void JsonSer(ArrayList<Rooster> roostersList) throws  SQLException, IOException {
 
             File file = new File("roosters.json");
             file.createNewFile();
@@ -107,7 +108,7 @@ public class SQLWork {
             mapper.writeValue(writer, roostersList);
     }
 
-     void JsonDeser() throws  SQLException, IOException {
+     public void JsonDeser() throws  SQLException, IOException {
 
 
         InputFun cin = new InputFun();
