@@ -8,7 +8,7 @@ public class DBHelper {
 
     public static PGPoolingDataSource getDataSource() {
 
-        if (dataSource==null) {
+        if (dataSource == null) {
 
             dataSource = new PGPoolingDataSource();
             dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
@@ -17,5 +17,5 @@ public class DBHelper {
 
         }
         return dataSource;
-        }
+    }
 }

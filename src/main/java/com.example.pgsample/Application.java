@@ -16,30 +16,14 @@ import java.util.ArrayList;
 
 public class Application
 {
+    public static void main(String[] args) throws SQLException
+    {
+            DataSource dataSource = DBHelper.getDataSource();
+            try (Connection connection = dataSource.getConnection()) {
 
-
-
-    public static void main(String[] args) {
-
-
-
-        DataSource dataSource = DBHelper.getDataSource();
-        try (Connection connection = dataSource.getConnection()) {
-
-        SQLWork sqlWork = new SQLWork(connection);
-        MenuController.menu(sqlWork);
-
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-
-
-
-
-
-
-
-        }
+            SQLWork sqlWork = new SQLWork(connection);
+            MenuController.menu(sqlWork);
+            }
     }
+}
 

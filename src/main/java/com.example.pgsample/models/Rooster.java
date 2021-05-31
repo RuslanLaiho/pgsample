@@ -1,18 +1,19 @@
 package com.example.pgsample.models;
 
 public class Rooster {
-    public int roosters_id;
+    public int roostersId;
     public String name;
-    public String describle_r;
+    public String describleRooster;
 
     public String toString() {
-        return roosters_id + ", " + name + ", " + describle_r;
+        return roostersId + ", " + name + ", " + describleRooster;
     }
 
-    Rooster (int roosters_id, String name, String describle_r) {
-        this.roosters_id  = roosters_id;
+    Rooster (int roostersId, String name, String describaleRooster)
+    {
+        this.roostersId = roostersId;
         this.name = name;
-        this.describle_r   = describle_r;
+        this.describleRooster = describaleRooster;
     }
 
     public Rooster() {}
